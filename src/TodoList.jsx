@@ -5,13 +5,11 @@ function TodoList(){
     {id:3, title:"Test item 3"},
   ]
     return (
-        <>
         <ul>
           {todos.map(
             (todo) => <li key={todo.id}>{todo.title}</li>
             )}
         </ul>
-        </>
     )
 }
 

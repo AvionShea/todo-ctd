@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 function TextInputWithLabel({
   elementId,
   label,
@@ -5,10 +7,13 @@ function TextInputWithLabel({
   ref,
   value,
 }) {
+  const StyledTextLabel = styled.input`
+    color: rgb(119, 10, 141);
+  `;
   return (
     <>
       <label htmlFor={elementId}>{label}</label>
-      <input
+      <StyledTextLabel
         type="text"
         id={elementId}
         ref={ref}

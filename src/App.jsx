@@ -4,6 +4,8 @@ import TodoForm from "./features/TodoForm";
 import TodosViewForm from "./features/TodosViewForm";
 import { useCallback, useEffect, useState } from "react";
 
+import styles from './App.module.css';
+
 function App() {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -214,7 +216,7 @@ function App() {
         setQueryString={setQueryString}
       />
       {errorMessage && (
-        <div>
+        <div className={styles["error-message"]}>
           <hr />
           <p>{errorMessage}</p>
           <button onClick={() => setErrorMessage("")}>Dismiss</button>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 
 function TodosViewForm({
   sortDirection,
@@ -10,6 +11,15 @@ function TodosViewForm({
 }) {
 
   const [localQueryString, setLocalQueryString] = useState(queryString);
+
+  const StyledSearch = styled.select`
+  margin-left: 0.15rem;
+  margin-top: 0.7rem;
+`;
+
+const StyledLabel = styled.label`
+  margin-left: 1rem;
+`;
 
   const preventRefresh = (e) => {
     e.preventDefault();
@@ -28,7 +38,7 @@ function TodosViewForm({
   return (
     <form onSubmit={preventRefresh}>
       <div>
-        <label htmlFor="search">Search todos:</label>
+        <StyledLabel htmlFor="search">Search todos:</StyledLabel>
         <input
           id="search"
           type="text"
@@ -41,8 +51,8 @@ function TodosViewForm({
       </div>
 
       <div>
-        <label htmlFor="sortBy">Sort by</label>
-        <select
+        <StyledLabel htmlFor="sortBy">Sort by</StyledLabel>
+        <StyledSearch
           id="sortBy"
           name="sortBy"
           value={sortField}
@@ -50,10 +60,10 @@ function TodosViewForm({
         >
           <option value="title">Title</option>
           <option value="createdTime">Time added</option>
-        </select>
+        </StyledSearch>
 
-        <label htmlFor="direction">Direction</label>
-        <select
+        <StyledLabel htmlFor="direction">Direction</StyledLabel>
+        <StyledSearch
           id="direction"
           name="direction"
           value={sortDirection}
@@ -61,7 +71,7 @@ function TodosViewForm({
         >
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
-        </select>
+        </StyledSearch>
       </div>
     </form>
   );

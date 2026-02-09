@@ -1,4 +1,5 @@
 import TodoListItem from "./TodoListItem";
+import styles from './TodoList.module.css';
 
 function TodoList({todoList, onCompleteTodo, onUpdateTodo, isLoading}) {
 
@@ -7,7 +8,7 @@ function TodoList({todoList, onCompleteTodo, onUpdateTodo, isLoading}) {
     return (
         isLoading ? <p>Loading todo items, please hold!</p> :
         filteredTodos.length === 0 ? <p>Add an item to get started!</p> :
-        <ul>
+        <ul className={styles.list}>
           {filteredTodos.map(
             (todo) => <TodoListItem 
             key={todo.id}
